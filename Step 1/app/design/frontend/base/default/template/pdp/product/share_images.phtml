@@ -1,0 +1,10 @@
+<?php 
+$shareId = $this->getRequest()->getParam("share");
+if (!$shareId) {
+	return;
+}
+$sampleImages = $this->helper("pdp")->getShareThumbnail($shareId);
+?>
+<?php foreach($sampleImages as $image) : ?>
+<link og:image="<?php echo $image['image'] ?>" rel="image_src" href="<?php echo $image['image'] ?>"/>
+<?php endforeach; ?>

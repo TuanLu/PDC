@@ -1,0 +1,52 @@
+/**Reset bootstrap**/
+.label, .badge {
+	color: #EB5E00;
+    font-size: 11px;
+    font-weight: normal;
+	line-height: 16px;
+	background: none;
+}
+button.btn:hover {
+	background: #F4F4F4;
+}
+ul, ol {
+	margin: 0px;
+	padding: 0px;
+}
+
+.btn-group-top {
+    clear: both;
+    float: left;
+}
+.btn-group-top .btn {
+    float: right;
+    margin: 10px 0;
+}
+
+.btn-group-top h3 span.title {
+    color: #7587AA;
+    font-family: Times New Roman;
+}
+.bt_disable{
+    background: repeat-x scroll 0 0 #F77C16;
+}
+
+/**Action panel**/
+.action-panel {
+	display: block;
+    float: right;
+    margin-top: 10px;
+}
+.action-panel .btn-group ul.dropdown-menu {
+	margin-left: -105px;
+}
+.action-panel select {
+	margin-bottom: 0px;
+}
+.group-filter {
+	float: right;
+    margin-bottom: 5px;
+}
+#group-manage table {
+	float: left;
+}

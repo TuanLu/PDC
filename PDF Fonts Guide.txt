@@ -1,0 +1,14 @@
+For PDF export, if the design has texts, you need to make sure that the font of text had been converted to TCPDF font (font for render text in PDF file).
+
+* Convert a font for TCPDF.
+I, The best and easier way to convert a font for now is using a online tool:
+1, Please access this website:
+	http://www.xml-convert.com/en/convert-tff-font-to-afm-pfa-fpdf-tcpdf
+2, Here is the preview of fonts in backend: 
+	http://screencast.com/t/bt4AveLPO
+	
+	Assume we want to convert playball font. Please follow the next screencast
+	http://screencast.com/t/aQwwA91QO
+3, After you click "Convert" button, you will see:
+	http://screencast.com/t/oXCwoV2v
+4, Download 3 files and copy(or upload) them to TCPDF folder in: lib/TCPDF/fonts/fonts/

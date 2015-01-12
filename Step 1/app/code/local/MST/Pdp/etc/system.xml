@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <mst translate="label" module="pdp">
+            <label>Products Designer Canvas</label>
+            <sort_order>201</sort_order>
+        </mst>
+    </tabs>
+	<sections>
+		<pdp translate="label" module="pdp">
+			<label>PDC - Configuration</label>
+			<tab>mst</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>777</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<info>
+                    <frontend_model>pdp/system_config_info</frontend_model>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                </info>
+				<act translate="label">
+                    <label>Active License Key</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+						<key translate='label'>
+                    		<label>License Key </label>
+                    		<frontend_type>text</frontend_type>
+                    		<comment>Please check your license key in order details. Contact to provider when you would like to reset the license key to apply PDC for new domain.</comment>
+                    		<sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+							<backend_model>pdp/saveconfig</backend_model>
+                    	</key>
+						<actinfo translate='label'>
+                    		<label>Active Status</label>
+                    		<frontend_type>label</frontend_type>
+                    		<sort_order>91</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+							<frontend_model>pdp/system_config_form_field_notification</frontend_model> 
+                    	</actinfo>
+                    </fields>
+                </act>
+                <setting translate="label">
+                    <label>Enable Products Designer Canvas - PDC</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+						<enable translate='label'>
+                    		<label>Enable PDC </label>
+                    		<frontend_type>select</frontend_type>
+                    		<sort_order>95</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <!-- <show_in_website>1</show_in_website> -->
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                    	</enable>
+                    	<design_button_label translate='label'>
+                    		<label>Design Button Label</label>
+                    		<frontend_type>text</frontend_type>
+                    		<sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                    	</design_button_label>
+                        <!-- <display>
+                            <label>Display Customize Item In Cart Types</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>MST_Pdp_Model_Displaytype</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </display> -->
+						<jquery translate='label'>
+                    		<label>Load jQuery in product page </label>
+                    		<frontend_type>select</frontend_type>
+							<comment>Select No if the jQuery libraries already exist to remove jQuery conflicts. Select Yes to load jquery library from PDC module.</comment>
+                    		<sort_order>195</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <!-- <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store> -->
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                    	</jquery>
+                    </fields>
+                </setting>
+				<social translate="label">
+                    <label>Social Settings</label>
+                    <comment>Allow your customer to upload photo from their social account.</comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>70</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+						<enable_facebook translate='label'>
+                    		<label>Enable Facebook </label>
+                    		<frontend_type>select</frontend_type>
+                    		<sort_order>95</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                    	</enable_facebook>
+						<facebook_app_id translate='label'>
+                    		<label>Facebook App ID: </label>
+                    		<frontend_type>text</frontend_type>
+                    		<sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                    	</facebook_app_id>
+						<facebook_secret_key translate='label'>
+                    		<label>Facebook Secret Key: </label>
+                    		<frontend_type>text</frontend_type>
+                    		<sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                    	</facebook_secret_key>
+                    </fields>
+                </social>
+			</groups>
+		</pdp>
+	</sections>
+</config>

@@ -1,0 +1,2 @@
+Installation Notice: Only upload file in [Step 2] once all files in [Step 1] are completed upload.
+Please reference in document guide.

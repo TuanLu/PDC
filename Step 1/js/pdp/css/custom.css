@@ -1,0 +1,11 @@
+#image-manage .btn:hover, #image-manage .btn:focus {
+	background-position: 0 -15px;
+    color: #333333;
+    text-decoration: none;
+    transition: background-position 0.1s linear 0s;
+}
+
+#image-manage .btn:focus {
+    outline: thin dotted #333333;
+    outline-offset: -2px;
+}

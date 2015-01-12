@@ -1,0 +1,112 @@
+<?php 
+	$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .'pdp/images/';
+    $fontUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .'pdp/fonts/';
+	$baseUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+	$fonts = Mage::getModel('pdp/pdp')->getFontCollection();
+?>
+<style>
+<?php foreach ($fonts as $font) { ?>
+@font-face {
+    font-family: '<?php echo $font->getName(); ?>';
+    src: url('<?php echo $fontUrl . $font->getName().'.'.$font->getExt(); ?>');
+}
+p.<?php echo str_replace(' ', '_', $font->getName()); ?> {
+    font-family: <?php echo $font->getName(); ?>;
+    font-size: 25px;
+}
+<?php }?>
+</style>
+<div id="image-manage">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span8">
+				<span class="title">Manage Fonts Library</span><strong> **Tips:</strong> If font display on Font Preview does not like as your font in design, it will not working on frontend too.
+			</div>
+			<div class="span4">
+				<div class="btn-group">
+					<button class="btn btn-success">Action</button>
+					<button data-toggle="dropdown" class="btn btn-success dropdown-toggle">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a id="select_all_item" href="#">Select All Items</a></li>
+						<li><a id="uncheck_all_item" href="#">Unchecked All Items</a></li>
+						<li class="divider"></li>
+						<li><a id="delete_selected_item" href="#">Delete Selected Item(s)</a></li>
+					</ul>
+				</div>
+				<div class="btn-group">
+					<button class="btn btn-success" onclick="FontItem.upload();"><span id="btn-file-title">Add New Fonts</span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+     
+    <div class="tab-content">
+        <div class="tab-pane active" id="font">
+            <table id="font-table" class='table table-bordered'>
+        		<thead>
+        			<th style="width: 8%;"></th>
+        			<th style="width: 30%;">Font Title</th>
+        			<th style="width: 50%;">Font Preview</th>
+        			<!--<th>Action</th>-->
+        		</thead>
+                <tbody>
+                    <?php foreach ($fonts as $font) { ?>
+            		<tr>
+            			<td><input type="checkbox" class='font-checkbox' id='font_<?php echo $font->getFontId() ?>' /></td>
+            			<td><?php echo $font->getName() ?></td>
+            			<td><p class="<?php echo str_replace(' ', '_', $font->getName()); ?>">Sample Text</p></td>
+            			<?php //$deleteUrl = Mage::helper("adminhtml")->getUrl("pdp/adminhtml_pdp/deletefont/",array("font_id"=> $font->getFontId())) . 'isAjax=true'; ?>
+            			<!--<td><button id="<?php //echo "delete_" . $font->getFontId() ?>" class="btn" onclick="MST.deleteImage('<?php //echo $deleteUrl ?>')">Delete</button></td>-->
+            		</tr>
+            		<?php } ?>
+                </tbody>
+        	</table>
+        </div>
+    </div>
+    
+	<input type="hidden" value="<?php echo $baseUrl ?>" name="base_url" id="base_url"/>
+    
+    <div id="upload-files-form" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <form name="demoFiler" id="demoFiler" enctype="multipart/form-data" action="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN) . 'adminhtml/default/default/pdp/upload.php'; ?>">
+    		<input type="hidden" name="upload_file_type" value="font" id="upload_file_type"/>
+            <div class="modal-header">
+    			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    			<h4 id="myModalLabel">Add New Font(s)</h4>
+    		</div>
+    		<div class="modal-body">
+				<div>
+					<ul>
+						<li><span class='support-files'><em>- Single or Multi upload font files</em></span></li>
+						<li><span class='support-files'><em>- Allows font type: <b>.ttf, .otf, .fnt, .fon, .woff, .dfont</b>. For other font type, please contact support.</em></span></li>
+					</ul>
+				</div>
+            	<div class="container-fluid">
+            		<div class="row-fluid">
+            			<div class="span12">
+            				<div class="multiupload">
+            					<div id="dragAndDropFiles" class="uploadArea">
+            						
+            					</div>
+            					<?php //$adminobj= new Mage_Adminhtml_Block_Template(); ?>
+            					<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
+            					<input type="hidden" id="base_dir" name="base_dir" value="<?php echo Mage::getBaseDir(); ?>" />
+            					<input type="hidden" id="skin_url" name="skin_url" value="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN);?>" />
+								<div>
+            						<input type="file" name="multiUpload" id="multiUpload" multiple="" /> 
+            					</div>
+            					<div class="progressBar">
+            						<div class="status"></div>
+            					</div>
+            				</div>
+            			</div>
+            		</div>
+            	</div>
+    		</div>
+    		<div class="modal-footer">
+                <input type="submit" name="submitHandler" id="submitHandler" value="Upload" class="buttonUpload btn btn-success" />
+    		</div>
+        </form>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+.wrapper_pdp #design_control #pdp_rotate_item ,
+.pdp_edit_font_style li:hover,
+#design_control .add_text_field,
+#design_control .add_text_field .pdp_text_list ul li:hover,
+.wrapper_pdp #design_control .tab_content,
+#pdp_shadow_item,
+.quick_tools .pdp_btn,
+#pdp_opacity_item 
+{border-color: #80d299;}
+
+#add_text:before,
+#select_image:before
+{border-bottom-color: #80d299;}
+
+.pdp_edit_font_style li:hover,
+#design_control .add_text_field .pdp_text_list ul li:hover,
+#save_design,
+#save_design,
+#design_control .pdp_text_title, #design_control .photo-art-title,
+#select_font li:hover, #select_font li.active,
+#design_control .pdp_side_title,
+.tab_design_image a.active,
+.noUi-base ,
+#layer_pricing .pdp2_layer_item.active
+{ 
+background-color: #80d299;
+}
+.pdp_color_list ul li a.active:before, .pdp_color_list ul li a:hover:before,
+.pdp_design_color li.active:before, .pdp_design_color li:hover:before,
+#font_menu.showClose:before,
+#font_menu
+{
+color:#80d299;
+}
+/* .wrapper_pdp .product-title{background:#87ceeb;} */
+.content_designs #image_category_list .active,
+.ac-container > div > label,
+#pdp_rotate_item .pdp_rotate_wrap > label,
+#pdp_toolbox > input:checked + label
+{
+background-color:#3399cc;
+}
+#pdp_toolbox > input:checked ~ .pdp-toolbox ,#pdp_side_items li.active img,
+.content_designs #image_category_list,#select_font
+{border-color:#3399cc;}

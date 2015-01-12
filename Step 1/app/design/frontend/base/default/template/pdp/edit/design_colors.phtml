@@ -1,0 +1,20 @@
+<ul class="pdp_design_color">
+<?php $productColors = $this->getProductColorCollection(); ?>
+<?php foreach ($productColors as $productColor) :  ?>
+<?php
+	$colorCode = $productColor['color_code'];
+	$colorName = $productColor['color_name'];
+	$productColorId = $productColor['id'];
+	$sideImages = $productColor['images'];
+?>
+<li
+	color="<?php echo $colorCode  ?>"
+	id="pdp_color_<?php echo $productColorId  ?>"
+	<?php foreach ($sideImages as $side) : ?>
+	<?php echo "side_" .$side['side_id'] . "='" . $side['filename'] . "'"; ?>
+	<?php endforeach; ?>
+	style="background: #<?php echo $colorCode  ?>"
+	name="<?php echo $colorName  ?>">
+</li>
+<?php endforeach; ?>
+</ul>

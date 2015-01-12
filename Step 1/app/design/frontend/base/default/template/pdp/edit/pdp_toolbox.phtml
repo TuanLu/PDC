@@ -1,0 +1,95 @@
+<?php 
+$productConfigs = $this->getProductConfig();
+?>
+<div id="pdp_toolbox">
+	<input name="tab_tool" id="tool_pricing" type="radio" />
+	<?php if ($productConfigs['show_price'] == 1) { ?>
+	<label for="tool_pricing"><?php echo $this->__('Pricing')?> <i class="pi pi-caret-down"></i></label>
+	<input name="tab_tool" id="tool_expand" type="radio" />
+	<label for="tool_expand"><?php echo $this->__('Tools Panel')?> <i class="pi pi-caret-down"></i></label>
+	<?php }else{ ?>
+	<input name="tab_tool" id="tool_expand" type="checkbox" />
+	<label for="tool_expand"><?php echo $this->__('Tools Panel')?> <i class="pi pi-caret-down"></i></label>
+	<?php } ?>
+	<div class="pdp-toolbox ac-container">
+		<div data-block="quick_tool" class="tools">
+			<input id="tools" name="toolbox" type="radio" />
+			<label for="tools"><?php echo $this->__('Quick Transforming Tools') ?></label>
+			<article class="ac-large">
+				<div class="quick_tools">	  
+					<button id="move_to_front" class="pdp_btn pdp_btn_small pdp_btn_warming pdp_btn_50"><i class="pi pi-long-arrow-down"></i> <?php echo $this->__('Bring Forward') ?></button>
+					<button id="move_to_back" class="pdp_btn pdp_btn_small pdp_btn_warming pdp_btn_50"><i class="pi pi-long-arrow-up"></i> <?php echo $this->__('Move Back') ?></button>
+					<button id="pdp_flip_x" class="pdp_btn pdp_btn_small pdp_btn_warming pdp_btn_50"><i class="pi pi-exchange"></i> <?php echo $this->__('Flip Horizontal') ?></button>
+					<button id="pdp_flip_y" class="pdp_btn pdp_btn_small pdp_btn_warming pdp_btn_50"><i class="pi pi-exchange pi-rotate-90"></i> <?php echo $this->__('Flip Vertical') ?></button> 
+					<div id="pdp_opacity_item" class="pdp_opacity_item pdp_btn_block">
+						<div class="label"><i class="pi pi-certificate "></i> <?php echo $this->__('Opacity');?>: </div>
+						<span>0</span>
+						<div id="pdp_opacity_input"></div>
+						<span>100%</span>
+					</div>
+					<button class="pdp_btn pdp_btn_small pdp_btn_warming pdp_btn_50" id="duplicate_item"><i class="pi pi-copy"></i> <?php echo $this->__('Duplicate') ?></button>
+					<button class="pdp_btn pdp_btn_small pdp_btn_danger pdp_btn_50" id="delete_item"><i class="pi pi-trash-o"></i> <?php echo $this->__('Remove') ?></button> 
+					<?php echo $this->getChildHtml('pdp_shadow'); ?>
+				</div>
+			</article>
+		</div>
+		<div data-block="text_tool" class="tools">
+			<input id="tab_text" name="toolbox" type="radio" />
+			<label for="tab_text"><?php echo $this->__('Edit/Transform Text') ?></label>
+			<article class="ac-large">
+				<?php echo $this->getChildHtml('pdp_edit_text'); ?>
+			</article>
+		</div>
+		
+		<div data-block="artwork_color"  class="tools">
+			<input id="tab_artwork" name="toolbox" type="radio" />
+			<label for="tab_artwork"><?php echo $this->__('Change Clipart Color') ?></label>
+			<article class="ac-large">
+			 <?php echo $this->getChildHtml('pdp_color') ?>
+			</article>
+		</div>
+		
+		<div data-block="design_color"  class="tools">
+			<input id="ac-3" name="toolbox" type="radio" />
+			<label for="ac-3"><?php echo $this->__('Change Product Color') ?></label>
+			<article class="ac-large">
+                <?php echo $this->getChildHtml('design_colors') ?>
+			</article>
+		</div>
+		<div data-block="info"  class="tools">
+			<input id="ac-4" name="toolbox" type="radio" checked />
+			<label for="ac-4"><?php echo $this->__('Product Information') ?></label>
+			<article class="ac-small">
+				<div class="item-short-description">
+				<?php $productInfo = $this->getProductInfo(); ?>
+				<p class="product-description">
+					<?php echo $productInfo['description'] ?>
+				</p>
+				<p class="product-short-description" style="display: none;">
+					<?php echo $productInfo['short_description'] ?>
+				</p>
+				</div>
+			</article>
+		</div>
+		<?php echo $sidesTotal = Mage::helper('pdp')->getDesignSidesTotal($this->getCurrentProductId()); ?>	
+		<div data-block="pricing" id="pdp_total_layer_price"  class="prices">
+			<!--label><?php echo $this->__('Total Layers Price') ?></label-->
+			<article class="ac-large" style="height:auto;">
+			<!-- Pricing of Layers Tab Content -->
+				<div class="layer-pricing-table">
+					<table class="layer_pricing">
+					  <tfoot>
+						<tr>
+						  <th></th>
+						  <th><?php echo $this->__('Total Layers Price') ?>:</th>
+						  <th>$0.00</th>
+						  <th></th>
+						</tr>
+					  </tfoot>
+					</table>
+				</div>
+			</article>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<pdp_view_finaldesign>
+		<reference name="content">
+			<block type="core/template" name="root" template="pdp/view/finaldesign.phtml" />
+		</reference>
+	</pdp_view_finaldesign>
+	<pdp_view_getdesignpage>
+		<reference name="content">
+			<block type="pdp/pdp" name="root" template="pdp/design.phtml" output="toHtml" >
+				<block type="core/template" name="default_setting" as="default_setting" output="toHtml" template="pdp/design/default_setting.phtml"/>
+				<block type="pdp/pdp" name="design_item" as="design_item" template="pdp/design/design_item.phtml"/>
+				<block type="pdp/pdp" name="facebook_info" as="facebook_info" template="pdp/design/facebook.phtml"/>
+				<block type="pdp/pdp" name="pdp_artworks" as="pdp_artworks" template="pdp/design/artwork.phtml"/>
+				<block type="pdp/pdp" name="pdp_text" as="pdp_text" template="pdp/design/text.phtml"/>
+				<block type="pdp/pdp" name="edit_item_buttons" as="edit_item_buttons" template="pdp/design/edit_item_buttons.phtml"/>
+				<block type="pdp/pdp" name="add_to_box" as="add_to_box" template="pdp/design/add_to_box.phtml"/>
+				<block type="pdp/pdp" name="pdp_sideview" as="pdp_sideview" template="pdp/edit/pdp_sideview.phtml" />
+				<block type="pdp/pdp" name="pdp_toolbox" as="pdp_toolbox" template="pdp/edit/pdp_toolbox.phtml">
+					<block type="pdp/pdp" name="pdp_edit_text" as="pdp_edit_text" template="pdp/edit/text.phtml"/>
+					<block type="pdp/pdp" name="pdp_shadow" as="pdp_shadow" template="pdp/edit/shadow.phtml"/>
+					<block type="pdp/pdp" name="pdp_color" as="pdp_color" template="pdp/edit/color.phtml"/>
+					<block type="pdp/pdp" name="design_colors" as="design_colors" template="pdp/edit/design_colors.phtml"/>
+				</block>
+				<!-- <block type="pdp/pdp" name="pdp_action" as="pdp_action" template="pdp/edit/actions.phtml"/> -->
+				
+				<!-- <block type="pdp/pdp" name="pdp_flip_flop" as="pdp_flip_flop" template="pdp/edit/flip_flop.phtml"/>
+				<block type="pdp/pdp" name="pdp_opacity" as="pdp_opacity" template="pdp/edit/opacity.phtml"/>
+				<block type="pdp/pdp" name="pdp_shadow" as="pdp_shadow" template="pdp/edit/shadow.phtml"/> -->
+				<block type="core/template" name="share_buttons" as="share_buttons" template="pdp/design/share_buttons.phtml"/>
+			</block>
+		</reference>
+	</pdp_view_getdesignpage>
+    <sales_order_view>
+		<reference name="head">
+			<action method="addItem" ifconfig="pdp/setting/enable" ><type>js</type><name>pdp/js/jquery.min.js</name></action>
+			<action method="addItem" ifconfig="pdp/setting/enable" ><type>js</type><name>pdp/js/customorder.js</name></action>
+		</reference>
+    </sales_order_view>
+    <pdp_pdptemplate_view>
+		<update handle="customer_account"/>
+		<reference name="content">
+			<block type="pdp/pdptemplate" name="view.pdptemplate" template="pdp/pdptemplate/view.phtml"/>
+		</reference>
+    </pdp_pdptemplate_view>
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/styles.css</name></action>
+			<action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/jquery.ui.core.css</name></action>
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/colorbox.css</name></action>
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/owl.carousel.css</name></action>
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/pi-awesome.css</name></action>
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/jquery.nouislider.css</name></action>
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/jquery.mCustomScrollbar.css</name></action>
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/farbtastic.css</name></action>
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/stickytooltip.css</name></action>
+			<!-- Accordion Toolbox on Design Area -->
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/accordion.css</name></action>
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/skin-1.css</name></action>
+            <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/colour-icon.css</name></action>
+            <block type="pdp/designbutton" name="pdpdesign_share_images" as="pdpdesign_share_images" template="pdp/product/share_images.phtml" />
+        </reference>
+        <reference name="product.info.addtocart">
+            <block type="pdp/designbutton" name="pdpdesign_button" as="design_button" template="pdp/product/design_button.phtml" />
+        </reference>
+    </catalog_product_view>
+	<checkout_cart_index>
+		<reference name="head" >
+            <action method="addItem" ifconfig="pdp/setting/enable" ><type>js</type><name>pdp/js/jquery.min.js</name></action>
+			<action method="addItem" ifconfig="pdp/setting/enable" ><type>js</type><name>pdp/js/jquery.colorbox.js</name></action>
+            <!-- <action method="addItem" ifconfig="pdp/setting/enable" ><type>js</type><name>pdp/js/cart.js</name></action> -->
+			<action method="addItem" ifconfig="pdp/setting/enable" ><type>js_css</type><name>pdp/css/styles.css</name></action>
+            <action method="addItem" ifconfig="pdp/setting/enable" ><type>js_css</type><name>pdp/css/colorbox.css</name></action>
+		</reference>
+		<reference name="content">
+			<block type="core/template" name="default_setting" as="default_setting" output="toHtml" template="pdp/design/default_setting.phtml"/>
+		</reference>
+        <!--<reference name="checkout.cart">
+            <action method="addItemRender">
+                <type>simple</type>
+                <block>checkout/cart_item_renderer</block>
+                <template>pdp/cart/item/default.phtml</template>
+            </action>
+        </reference>-->
+        <reference name="additional.product.info">
+            <block type="pdp/additional_product_info" name="pdp_additional_product_info"/>
+        </reference>
+	</checkout_cart_index>
+	<sales_email_order_items>
+		<reference name="additional.product.info">
+            <block type="pdp/email_additional_product_info" name="pdp_additional_product_info"/>
+        </reference>
+	</sales_email_order_items>
+	<checkout_onepage_review>
+		<reference name="additional.product.info">
+			<block type="pdp/checkout_onepage_review_info" name="pdp_review_item"/>
+		</reference>
+	</checkout_onepage_review>
+</layout>
