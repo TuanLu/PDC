@@ -1,6 +1,6 @@
 <?php 
 	$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .'pdp/images/artworks/';
-	$baseUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+	$baseUrl = Mage::helper("pdp")->getPdpBaseUrl();
 	$categoryOptions = Mage::getModel('pdp/artworkcate')->getCategoryOptions();
 ?>
 <div id="image-manage">

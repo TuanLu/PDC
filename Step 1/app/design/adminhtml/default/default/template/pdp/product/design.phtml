@@ -2,7 +2,7 @@
 if (Mage::getStoreConfig('pdp/setting/enable') == 0) {
     echo "<h3>[Products Designer Canvas] is disabled!</h3>";
 }
-$baseUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+$baseUrl = Mage::helper("pdp")->getPdpBaseUrl();
 $productId = Mage::app()->getRequest()->getParam('id');
 $productStatus = Mage::getModel('pdp/productstatus')->getProductStatus($productId);
 ?>

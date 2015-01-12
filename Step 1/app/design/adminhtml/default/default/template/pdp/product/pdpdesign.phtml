@@ -21,7 +21,7 @@ $productConfigs = Mage::helper("pdp")->getProductConfig($productId);
 //Zend_Debug::dump($productConfigs);
 ?>
 <input type="hidden" id="current_product_id" value="<?php echo $productId ?>" />
-<input type="hidden" id="base_url" value="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK) ?>" />
+<input type="hidden" id="base_url" value="<?php echo Mage::helper("pdp")->getPdpBaseUrl(); ?>" />
 <input type="hidden" id="request_url" value="<?php echo Mage::helper("adminhtml")->getUrl("pdp/adminhtml_designarea/setuparea") ?>" />
 <input type="hidden" id="add_design_color_url" value="<?php echo Mage::helper("adminhtml")->getUrl("pdp/adminhtml_designarea/adddesigncolor") ?>" />
 <input type="hidden" id="view_design_color_url" value="<?php echo Mage::helper("adminhtml")->getUrl("pdp/adminhtml_designarea/viewdesigncolor") ?>" />

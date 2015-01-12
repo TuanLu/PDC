@@ -1,7 +1,7 @@
 <?php 
 	$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .'pdp/images/';
     $fontUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .'pdp/fonts/';
-	$baseUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+	$baseUrl = Mage::helper("pdp")->getPdpBaseUrl();
 	$fonts = Mage::getModel('pdp/pdp')->getFontCollection();
 ?>
 <style>
