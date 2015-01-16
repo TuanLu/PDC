@@ -59,9 +59,12 @@ tshirt(function($){
 			var src = $('#design_image').attr('src');
 			var img = new Image();
 			img.src = src;
-			//$('.img_area' ).attr("style",'width:' + img.width + 'px; height:' + img.height + 'px');
-			$('.img_area').attr("style",'width:' + img.width);
-            $('.inlay_area').attr("style",'width:'+w+'px; height:'+h+'px;top:'+t+'px;left:'+l+'px;');
+			img.onload = function() {
+				//$('.img_area' ).attr("style",'width:' + img.width + 'px; height:' + img.height + 'px');
+				$('.img_area').attr("style",'width:' + img.width);
+	            $('.inlay_area').attr("style",'width:'+w+'px; height:'+h+'px;top:'+t+'px;left:'+l+'px;');
+			}
+			
             $('.inlay_area').resizable({
                 containment: '.img_area' ,
     			aspectRatio: false,
