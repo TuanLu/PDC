@@ -57,8 +57,12 @@
 		<div class="content_upload nodisplay">
 		<?php $uploadImageAction = Mage::getBaseUrl() . "pdp/index/uploadCustomImage" ?>
 		<form id="upload_images_form" action="<?php echo $uploadImageAction ?>" method="POST" enctype="multipart/form-data">
-			<input type="file" multiple="multiple" accept="image/*" name="uploads[]" id="fileToUpload" />
-			<!--<button id="upload_custom_img_btn" class="pdp-btn" type="button" name="upload_custom_img_btn"><?php //echo $this->__('Upload') ?></button>-->
+			<input type="file" accept="image/*" name="uploads[]" id="fileToUpload" />
+			<p>
+	            <input type="checkbox" id="agreement" name="agreement" title="<?php echo $this->__("I have right to use this image and accept the terms and conditions of this service")?>" class="checkbox"><label for="agreement"><?php echo $this->__("I have right to use this image and accept the terms and conditions of this service")?>.</label>
+	            <input type="hidden" id="agreement_warming" value="<?php echo $this->__("Please accept the terms and conditions of this service!"); ?>" />
+	        </p>
+			<button id="upload_custom_img_btn" type="button" name="upload_custom_img_btn"><?php echo $this->__('Upload') ?></button>
 			<div id="response"></div>
 		</form>
 		<?php $customImageInSession = Mage::getSingleton("core/session")->getCustomUploadImages(); ?>

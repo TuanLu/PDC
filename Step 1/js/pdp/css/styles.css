@@ -2580,12 +2580,14 @@ a.th_link {
     text-decoration: none;
 }
 #upload_custom_img_btn {
-	background: none repeat scroll 0 0 #F15A29;
-    color: #FDFFFF;
+	background: none repeat scroll 0 0 rgb(173, 125, 62);
+    border: medium none;
+    border-radius: 0;
+    color: rgb(255, 255, 255);
     cursor: pointer;
+    font-size: 12px;
     font-weight: bold;
-    line-height: 21px;
-    padding: 0 3px;
+    padding: 5px 15px;
 }
 
 #pdp_color_item ul {
