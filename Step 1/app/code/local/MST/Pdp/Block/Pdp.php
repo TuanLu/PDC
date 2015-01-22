@@ -70,7 +70,7 @@ class MST_Pdp_Block_Pdp extends Mage_Core_Block_Template
 	public function getViewMode () {
 		$params = $this->_params;
 		$viewMode = "product";
-		if (isset($params['area']) && $params['area'] == "backend") {
+		if (isset($params['area']) && ($params['area'] == "backend" || $params['area'] == "customize")) {
 			$viewMode = "backend";
 		}
 		return $viewMode;
@@ -102,5 +102,19 @@ class MST_Pdp_Block_Pdp extends Mage_Core_Block_Template
 	}
 	public function getProductConfig() {
 		return Mage::helper("pdp")->getProductConfig($this->getCurrentProductId());
+	}
+	public function getJsonContentFromParam() {
+		$jsonContent = "";
+		if (isset($this->_params['json']) && $this->_params['json'] != "") {
+			$jsonContent = $this->_helper->getPDPJsonContent($this->_params['json']);
+		}
+		return $jsonContent;
+	}
+	public function isAdminUser() {
+		$isAdmin = false;
+		if(isset($this->_params['area']) && isset($this->_params['key'])) {
+			$isAdmin = true;
+		}
+		return $isAdmin;
 	}
 }

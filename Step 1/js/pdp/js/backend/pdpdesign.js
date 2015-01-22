@@ -51,7 +51,7 @@ mstPDPPopup(function($){
 			});
 		}(),
 		createSample : function () {
-			var	url = baseUrl + "pdp/view/getDesignPage/product-id/" + productId + "/area/backend";
+			var	url = baseUrl + "pdp/view/getDesignPage/product-id/" + productId + "/area/backend/key/46783db73cb9894e0ed77647840ef5b5";
 			$(".create-sample-btn").on("click", function() {
 				PDPPopup.openPopup(url, "Create Pattern Style", PDPPopup.setupAreaHandler );
 			});

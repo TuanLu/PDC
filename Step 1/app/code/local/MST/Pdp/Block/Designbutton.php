@@ -56,7 +56,6 @@ class MST_Pdp_Block_Designbutton extends Mage_Core_Block_Template
         $response['wishlist_item_id'] = '';
         $response['extra_options'] = '';
 		$response['extra_options_value'] = '';
-
         $moduleName = Mage::app()->getRequest()->getModuleName();
         if (Mage::app()->getRequest()->getActionName() == "configure") {
             if ($moduleName == "checkout") {
@@ -81,7 +80,16 @@ class MST_Pdp_Block_Designbutton extends Mage_Core_Block_Template
 					$response['extra_options_value'] = $helper->getPDPJsonContent($response['extra_options']);
                 }
             }
-
+        } else if ($this->_shareId != null) {
+			$response['extra_options'] = Mage::getModel('pdp/share')->load($this->_shareId)->getPdpdesign();
+			$response['extra_options_value'] = $helper->getPDPJsonContent($response['extra_options']);
+		} else {
+        	//Get sample design if exists
+        	$sampleDesignJsonFile = $helper->getSampleJsonFile($this->getProductId());
+        	if ($sampleDesignJsonFile != "") {
+        		$response['extra_options'] = $sampleDesignJsonFile;
+        		$response['extra_options_value'] = $helper->getPDPJsonContent($response['extra_options']);
+        	}
         }
         return $response;
     }

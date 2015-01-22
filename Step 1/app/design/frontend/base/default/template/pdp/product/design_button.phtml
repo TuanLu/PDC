@@ -2,22 +2,26 @@
 if (!$this->isDesignAble()) {
     return false;
 }
+$productId = $this->getProductId();
 $pdpDesignInfo = $this->getPdpDesignInfo();
 $sampleImages = Mage::helper("pdp")->getAdminSampleImage($this->getProductId());
 $area = "";
 $params = Mage::app()->getRequest()->getParams();
 if (isset($params['area']) && $params['area'] != "") {
 	$area = $params['area'];
+	if ($area == "customize") {
+		$area = "backend";
+	}
 }
-$productConfig = $this->helper("pdp")->getProductConfig($this->getProductId());
-$sampleDesignJsonFile = Mage::helper("pdp")->getSampleJsonFile($this->getProductId());
+$productConfig = $this->helper("pdp")->getProductConfig($productId);
+$baseUrl = Mage::helper("pdp")->getPdpBaseUrl();
 ?>
 <div style="display: none">
-    <input type="hidden" name="extra_options" value="<?php echo $sampleDesignJsonFile ?>"/>
+    <input type="hidden" name="extra_options" value="<?php echo $pdpDesignInfo['extra_options'] ?>"/>
 	<input type="hidden" id="extra_options_value" value="<?php echo htmlentities($pdpDesignInfo['extra_options_value']) ?>"/>
 	<a id="pdp_design_button" class="not_load nodisplay" href="#pdp_design_popup">View</a>
-	<input type="hidden" id="url_site" value="<?php echo Mage::helper("pdp")->getPdpBaseUrl() ?>" />
-    <input type="hidden" id="base_url" value="<?php echo Mage::helper("pdp")->getPdpBaseUrl() ?>" />
+	<input type="hidden" id="url_site" value="<?php echo $baseUrl ?>" />
+    <input type="hidden" id="base_url" value="<?php echo $baseUrl ?>" />
 	<input type="hidden" id="current_product_id" value="<?php echo $this->getProductId() ?>" />
 	<input type="hidden" id="pdp_design_action" value="<?php echo $pdpDesignInfo['action'] ?>" />
 	<input type="hidden" id="product_url" value="<?php echo $this->getProductUrl(); ?>" />
@@ -40,22 +44,3 @@ $sampleDesignJsonFile = Mage::helper("pdp")->getSampleJsonFile($this->getProduct
 <div class="design-btn">
     <span class="button create-sample-btn design-product" id="design_product_<?php echo $this->getProductId() ?>"><?php echo $this->__($this->getButtonLabel()); ?></span>
 </div>
-<div class="nodisplay">
-	<div id="pdp_design_popup"></div>
-</div>
-<?php if ($area != "backend") :?>
-	<?php if (Mage::getStoreConfig('pdp/setting/jquery') == 1) : ?>
-	<script src="<?php echo $this->getJSUrl('pdp/js/jquery.min.js') ?>"></script>
-	<?php endif; ?>
-	<script src="<?php echo $this->getJSUrl('pdp/js/farbtastic.js') ?>"></script>
-	<script src="<?php echo $this->getJSUrl('pdp/js/fabric.js') ?>"></script>
-	<script src="<?php echo $this->getJSUrl('pdp/js/pdpsetting.js') ?>"></script>
-	<!--<script src="<?php //echo $this->getJSUrl('pdp/js/curvedText.js') ?>"></script>-->
-	<script src="<?php echo $this->getJSUrl('pdp/js/owl.carousel.js') ?>"></script>
-	<script src="<?php echo $this->getJSUrl('pdp/js/jquery.colorbox.js') ?>"></script>
-	<script src="<?php echo $this->getJSUrl('pdp/js/jquery.nouislider.js') ?>"></script>
-	<script src="<?php echo $this->getJSUrl('pdp/js/jquery.mCustomScrollbar.concat.min.js') ?>"></script>
-	<!--<script src="<?php //echo $this->getJSUrl('pdp/js/stickytooltip.js') ?>"></script>-->
-	<script src="<?php echo $this->getJSUrl('pdp/js/frontend_popup.js') ?>"></script>
-	<script src="<?php echo $this->getJSUrl('pdp/js/facebook_connect.js') ?>"></script>
-<?php endif; ?>

@@ -33,4 +33,8 @@ class MST_Pdp_ViewController extends Mage_Core_Controller_Front_Action
 		$response['final_images'] = json_encode($thumbnailImages);
 		$this->getResponse()->setBody(json_encode($response));
 	}
+	public function getIframeAction() {
+		$block = $this->getLayout()->createBlock("core/template")->setTemplate("pdp/product/iframe.phtml");
+		$this->getResponse()->setBody($block->toHtml());
+	}
 }

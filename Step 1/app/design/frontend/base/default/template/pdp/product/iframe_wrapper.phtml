@@ -1,0 +1,23 @@
+<?php 
+$productId = $this->getProductId();
+$baseUrl = Mage::helper("pdp")->getPdpBaseUrl();
+$pdpDesignInfo = $this->getPdpDesignInfo(); 
+$iframeUrl = $baseUrl . "pdp/view/getIframe/product-id/" . $productId . "/json/" . $pdpDesignInfo['extra_options'];
+?>
+<style>
+	#pdc_iframe {
+		background: none repeat scroll 0 0 #b1c8c9; 
+		border: 1px solid #ccc;
+		margin: auto; 
+		position: absolute; 
+		top: -100000px;
+		z-index: 1000;
+	}
+</style>
+<iframe id="pdc_iframe" style="" src="<?php echo $iframeUrl ?>" width="300px" height="150px"></iframe>
+<script type="text/javascript">		
+	var pdcIframe = document.getElementById("pdc_iframe");
+	document.getElementById("design_product_<?php echo $this->getProductId() ?>").addEventListener("click", function(){
+		pdcIframe.contentDocument.getElementById('get_design_content').click();
+	});
+</script>

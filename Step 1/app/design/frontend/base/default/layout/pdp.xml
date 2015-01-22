@@ -46,6 +46,7 @@
     <catalog_product_view>
         <reference name="head">
             <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/styles.css</name></action>
+			<!-- 
 			<action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/jquery.ui.core.css</name></action>
             <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/colorbox.css</name></action>
             <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/owl.carousel.css</name></action>
@@ -54,15 +55,18 @@
             <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/jquery.mCustomScrollbar.css</name></action>
             <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/farbtastic.css</name></action>
             <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/stickytooltip.css</name></action>
-			<!-- Accordion Toolbox on Design Area -->
             <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/accordion.css</name></action>
             <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/skin-1.css</name></action>
             <action method="addItem" ifconfig="pdp/setting/enable"><type>js_css</type><name>pdp/css/colour-icon.css</name></action>
+             -->
             <block type="pdp/designbutton" name="pdpdesign_share_images" as="pdpdesign_share_images" template="pdp/product/share_images.phtml" />
         </reference>
         <reference name="product.info.addtocart">
             <block type="pdp/designbutton" name="pdpdesign_button" as="design_button" template="pdp/product/design_button.phtml" />
         </reference>
+        <reference name="before_body_end">
+			<block type="pdp/designbutton" name="pdp_iframe" as="pdp_iframe" template="pdp/product/iframe_wrapper.phtml" />
+		</reference>
     </catalog_product_view>
 	<checkout_cart_index>
 		<reference name="head" >

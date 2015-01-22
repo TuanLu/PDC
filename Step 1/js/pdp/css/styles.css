@@ -89,6 +89,17 @@
   top: -10px;
   width: 30px;
 }
+#close_iframe{
+  	background: url("../images/button-close.png") no-repeat scroll center center rgb(255, 255, 255);
+	border-radius: 100%;
+    cursor: pointer;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    width: 30px;
+    z-index: 1000;
+}
 #pdp2_zoom_content .inlay {
   background: none repeat scroll 0 0 #111;
   height: 100%;
@@ -1639,7 +1650,7 @@ a.th_link {
   float: left;
   padding: 0;
   position:relative;
-  width: 100%;
+  width: 97%;
 }
 .wrapper_pdp #design_control #select_image {
   border-right: 1px solid #80d299;
@@ -2094,6 +2105,10 @@ a.th_link {
 	line-height: 21px;
 	margin: 0 5px;
 	padding: 0 6px;
+}
+.design-btn .create-sample-btn.loading {
+	background: none repeat scroll 0 0 #ccc;
+	cursor: wait;
 }
 .add_text_field .box_size {
     float: left;

@@ -76,16 +76,14 @@
                             <sort_order>100</sort_order>
                             <show_in_default>1</show_in_default>
                         </display> -->
-						<jquery translate='label'>
+						<!-- <jquery translate='label'>
                     		<label>Load jQuery in product page </label>
                     		<frontend_type>select</frontend_type>
 							<comment>Select No if the jQuery libraries already exist to remove jQuery conflicts. Select Yes to load jquery library from PDC module.</comment>
                     		<sort_order>195</sort_order>
                             <show_in_default>1</show_in_default>
-                            <!-- <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store> -->
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                    	</jquery>
+                    	</jquery>  -->
                     </fields>
                 </setting>
 				<social translate="label">

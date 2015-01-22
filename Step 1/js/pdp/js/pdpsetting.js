@@ -30,6 +30,7 @@ function rgb2hex(rgb) {
     	defaultRenderTime = 1000,
         currencySym = $("#currency_symbol").val(),
     	allSidePanel = {},
+    	mainWindow = top.document,
     	renderTime;
     PDPsetting = {
         add_html: function(){
@@ -1343,41 +1344,46 @@ function rgb2hex(rgb) {
             						var sendJSON = PDPAction.deferredRequest(saveJsonUrl, { json_file : jsonString}, function(response) {
             							var jsonData = $.parseJSON(response);
             							$("input[name='extra_options']").val(jsonData.filename);
+            							$("input[name='extra_options']", top.document).val(jsonData.filename);
             						});
             						$.when(sendJSON).done(function(response) {
             							$('.pdploading').hide();
             							//Remove rendered class
             							//$("#pdp_side_items li").removeClass("rendered");
             							if (!isBackend) {
-            								$('#pdp_design_popup').hide(500);
-            								$('.product-view .product-img-box .product-image img').attr('src',$('#pdp_side_items li:eq(0)').children('img').attr('src'));
-            								$('.product-view .product-img-box .product-image').append('<span class="loadinggif"></span>');
-            								$('.product-view .product-img-box .product-image img').load(function(){
-            									$('.product-view .product-img-box .product-image .loadinggif').remove();
+            								//Hide iframe
+            								$("#pdc_iframe", mainWindow).css({"top" : "-100000px"});
+            								$('.product-view .product-img-box .product-image img', mainWindow).attr('src',$('#pdp_side_items li:eq(0)').children('img').attr('src'));
+            								$('.product-view .product-img-box .product-image', mainWindow).append('<span class="loadinggif"></span>');
+            								$('.product-view .product-img-box .product-image img', mainWindow).load(function(){
+            									$('.product-view .product-img-box .product-image .loadinggif', mainWindow).remove();
             								});
             								if(mitem > 1){
-            								    $('.more-views').remove(); 
-            									if($('.product-view .product-img-box .pdp_more_view').length == 0){
-            										$('.product-view .product-img-box').append('<div class="more-views"><h2>More View</h2><ul class="pdp_more_view"></ul></div>');
+            								    $('.more-views', mainWindow).remove(); 
+            									if($('.product-view .product-img-box .pdp_more_view', mainWindow).length == 0){
+            										$('.product-view .product-img-box', mainWindow).append('<div class="more-views"><h2>More View</h2><ul class="pdp_more_view"></ul></div>');
             									}else{
-            										$('.pdp_more_view').html('');
+            										$('.pdp_more_view', mainWindow).html('');
             									}
             								}
             								$('#pdp_side_items li').each(function(){
-            									$('.pdp_more_view').append('<li><img class="pdp-thumb" width="56" height="56" src="'+$(this).find('img').attr('src')+'" /></li>');
+            									$('.pdp_more_view', mainWindow).append('<li><img class="pdp-thumb" width="56" height="56" src="'+$(this).find('img').attr('src')+'" /></li>');
             								});
-            								$('.pdp_more_view li img').click(function(){
-            									$('.product-view .product-img-box .product-image img').attr('src',$(this).attr('src')); 
+            								$('.pdp_more_view li img', mainWindow).click(function(){
+            									$('.product-view .product-img-box .product-image img', mainWindow).attr('src',$(this).attr('src')); 
             								});
             								/********************************** RELOAD PRICE **********************************/
-            								if ($("#product_price_config").length) {
-            									var productPriceConfig = JSON.parse($("#product_price_config").val());
+            								if ($("#product_price_config", mainWindow).length) {
+            									var productPriceConfig = JSON.parse($("#product_price_config", mainWindow).val());
+            									if (productPriceConfig.productId === undefined) {
+            										return false;
+            									}
                 								var extraPrice = parseFloat($('#pdp_total_layer_price .layer_pricing').attr('pr'));
                 								productPriceConfig.productPrice = productPriceConfig.productPrice + extraPrice;
                 								productPriceConfig.productOldPrice = productPriceConfig.productOldPrice + extraPrice;
-                								optionsPrice = new Product.OptionsPrice(productPriceConfig);
+                								parent.optionsPrice = new parent.Product.OptionsPrice(productPriceConfig);
                 								try {
-                									optionsPrice.reload();
+                									parent.optionsPrice.reload();
                 								} catch(error) {
                 									console.log(error);
                 								}

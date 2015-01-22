@@ -18,11 +18,10 @@ mst(document).ready(function($){
 		$('#font_color').html('<i class="pi  pi-check"></i>'+$(this).attr('title'));
 		$('#font_color').css('background-color','#'+$(this).attr('rel')); 
 	});
-	 $("#select_font,#font_color_list,#pdp_color_item ul,#design_control .add_text_field .pdp_text_list ul,#icon_list").mCustomScrollbar({
+	$("#select_font,#font_color_list,#pdp_color_item ul,#design_control .add_text_field .pdp_text_list ul,#icon_list").mCustomScrollbar({
         advanced: {
             updateOnContentResize: true
         },
- 
         mouseWheelPixels: "200",
         theme: "dark-2"
     });
@@ -35,6 +34,10 @@ mst(document).ready(function($){
 		$('#pdp_design_popup .wrapper_pdp').toggleClass('pdp_full_preview');
 		$(this).toggleClass('pdp2_laptop');
 	});
+	//Expand and Clospand
+	/*$("input[name='tab_tool']").click(function(e) {
+		e.preventDefault();
+	});*/
 	/* Add CHECKED status to show the Tool Panel on large screen */
 	if($(window).width()>989){
 		 $('#tool_expand').prop('checked', true);
@@ -60,5 +63,4 @@ mst(document).ready(function($){
 	});
 	
 	/* ========YOUR CUSTOM JAVASCRIPT CODE HERE=============== */
-	
 });
