@@ -24,7 +24,7 @@ if (isset($request['json']) && $request['json'] != "") {
 <script src="<?php echo $this->getJSUrl('pdp/js/jquery.nouislider.js') ?>"></script>
 <script src="<?php echo $this->getJSUrl('pdp/js/owl.carousel.js') ?>"></script>
 <script src="<?php echo $this->getJSUrl('pdp/js/fabric.js') ?>"></script>
-<!-- <script src="<?php echo $this->getJSUrl('pdp/js/jquery.mCustomScrollbar.concat.min.js') ?>"></script>  -->
+<script src="<?php echo $this->getJSUrl('pdp/js/jquery.mCustomScrollbar.concat.min.js') ?>"></script>
 <script>
 	jQuery(function($) {
 		var mainWindow = top.document;
@@ -128,7 +128,7 @@ if (isset($request['json']) && $request['json'] != "") {
 						return false;
 					}
 					var extraPrice = 0;
-					if ($("#extra_options_value", mainWindow).length) {
+					if ($("#extra_options_value", mainWindow).length && $("#extra_options_value", mainWindow).val() != "") {
 						var extraOptionsValue = JSON.parse($("#extra_options_value", mainWindow).val());
 						var sampleCost = extraOptionsValue.items[0].final_price;
 						if (sampleCost) {
