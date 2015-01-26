@@ -3,9 +3,9 @@
 	<textarea id="pdp_edit_text_input" placeholder="<?php echo $this->__('Select text to edit');?>"></textarea>
 	<span id="font_menu" style="font-family: Arial;"><i class="pi  pi-check"></i><?php echo $this->__('Select Font')?></span>
 	<ul id="select_font">
-		<li rel="<?php echo $this->__("Arial") ?>"><?php echo $this->__('Sample Text') ?></li>
+		<li rel="<?php echo $this->__("Arial") ?>"><?php echo $this->__('Arial') ?></li>
 		<?php foreach ( $this->getFonts() as $font) : ?>
-		<li rel="<?php echo $font->getName() ?>"><?php echo $this->__('Sample Text')?></li>
+		<li rel="<?php echo $font->getName() ?>"><?php echo $font->getName() ?></li>
 		<?php endforeach; ?>
 	</ul>
 	<div class="style-and-align">
