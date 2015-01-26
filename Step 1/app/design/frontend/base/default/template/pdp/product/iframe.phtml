@@ -164,13 +164,7 @@ if (isset($request['json']) && $request['json'] != "") {
 					$(this).addClass("loaded");
 					LoadDesign.init();
 				});
-			}(),
-			autoClickCustomBtn : function() {
-				if($("#pdp_design_action", mainWindow).val() == "design") {
-					$("#get_design_content").click();
-				}
-			}
+			}()
  		}
- 		LoadDesign.autoClickCustomBtn();
 	});
 </script>
