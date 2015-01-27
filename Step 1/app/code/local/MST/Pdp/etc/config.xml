@@ -42,13 +42,13 @@
     </frontend>
     <admin>
         <routers>
-            <pdp>
+            <pdpadmin>
                 <use>admin</use>
                 <args>
                     <module>MST_Pdp</module>
-                    <frontName>pdp</frontName>
+                    <frontName>pdpadmin</frontName>
                 </args>
-            </pdp>
+            </pdpadmin>
         </routers>
     </admin>
     <adminhtml>
