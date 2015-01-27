@@ -2887,32 +2887,4 @@ display:block;
 #pdp_toolbox #tool_expand + label {
   margin-right: 75px;
 }
-}
 #product-image-wrap > img{max-height:none;max-width:none}
-/* Update CSS for Iframe */
-.pdc_design_panel {
-    background: none repeat scroll 0 0 #fff;
-    display: inline-block;
-    padding: 0;
-    width: 100%;
-}
-#close_iframe {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAFNUlEQVRIS51WWWwbVRQ9z2u8b0nqxLGbpe7iAFULgg/SSJUq/gCp0DhFapsUCZAiUtHyBy1Q8QclxU2qRiC1f2Tjkz8qRaEVitRWVKmTdMnSNJvjdTz2OPY4fmjGY8cDER/Mx8ybN+eec9+79747BADYru4hEOKHSiG8/q+LClbiDUB+CxR02HLrVidJdHUNqRpsfoXT9N/EtGRdAZOxSvMSbiuUAr/MDBOmu5uqDzfIyGkqBxpioWi2y0UlYyq4WqFH0zkgmwex6WT43F9rIIkPz1LNwbqygQDemloH8gWQWiMUXkfRaMcVUFCORyG4IUIUvhoQvVrCA9npDZC4IPDSriJHOof8ow1ojrwJlc8H7vogFDUGKPfY5QKS95TLIT8dgdLthrLRg9wfd6A6UA2iK4pszoRBYme7qba1FoVYBvm5GDRtbdD3fCwCcuMTSA8MQrXbCqXTIN8Wjgc/UyQ3fv0liEEPbmBQFFHvd4DoVOBmoyCR7i6q89WgkOaRlQwskoEgkh2fQGpgEOomK1QOvShc4HhkH0ehPdIGo+RMJVZVq4faZUL6aQxko6uLGg5Ui94VuBwys1HRK9s3F0WvxKWOTyDZfwPaRiuUOhUyT2LQtrfB3PNJOagljNqug9ZjFufZZ3GQUNcZatwrBRIUW1we6ScxVLW3wVpBkBmfQKL/hmioP9oOyw7fNLYq6Nymcj6w8wmQtTNnqNkrD+IWxyM5F4eu/QjsFUSJn2+ikOZgP9dT9jw9PoF4/w0YXEZorFUV1QYwCwzIyunT1NpilWUiZRPgwwlE7i/BcOwY6q9+t2MRJobHEPrqW9hbndC5a0BMFlkVxhdZkBenTlFbkxXgsyhEN1CIx4CtfDGL0jxCwQgs7x2H++r3MpHVS5cR+ekmHM0WGKuFAqOAQglidUBRXQOoNYgtsSCLHR3UbuBQSESlNNyu0mSYQ3iOQe1HZ9Fw+ZJM4Pm5zxEdHoPLZ4dWr5IXo6BlcyCaM4EEvV7qOmCXArNNzkQyCM0zaA5cQbX//R23aP7cBcRGf4Xba4W26t8iy/MMyFTLHtqwrxiD0vkSDaWxvpyCN3AFtf4TZfKnvefFsTfwQ3nuWe8FREbH0NhsQZVWLvJ8MQnysLmZevbYykfB0lIS8VgG+wN92NW5TT7bex6RkTFsFQrYF+iDs+Lb497zCI+MocVjLopIp+zCCxbkQWMTbRKCDGBhmUE0vonWa32o6+woexn89DOER0ax12MFt5nH4joL37U+1FdgJo++BW56GntdZug1RZG5tSTIvd2NtMVjwcI6i/Uoh1f6f4TrZJGcZ5KY+eIi1kdG0eqyQi9tQZjZxNwGi5f7r6LhpF/E5pkkJt89jnRwGj6nBQa1Ck83WJBJ927qrTcjnc3j4Ys46vwncHggAJ5hcPft40hPT+NgnRWG0tKlkzTEZvA4yuJQfwCeD4oiD3p6sTY0itZqEywaNWajLMifLg/d5zSLS0pledxfjcPV2YHE1CPRm1edVhg16mKMSk1Ges5Ek1jlNvHa9WsI37mLlV9GcLjaApNKKQoG4ymQO3Vu6qsxlY3ZLI/JUFwEvFFrg0ldCpqUZqVeIDwp8CiRxEomC5WC4HWbQC5kUtGZqWQK5HZtPT3kEEp828PIZg5qQmCuJC+3SAlXsZpgKgW3VguzQC4JC4N7qRTI7zX1Q3VVGr9Tq90W+cdWlI/HCuPKniwbS7m3yuewkssOE+H9N9uuIULgVxEi71qyzi4v5h3+Mcq1mqcUlNLhd5hw59/wX2cFBH5lggAAAABJRU5ErkJggg==") no-repeat scroll center center transparent;
-  cursor: pointer;
-  height: 30px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 30px;
-  z-index: 1000;
-}
-.iframe-container {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-body {
-  background: none repeat scroll 0 0 #00aeef;
-  display: block;
-  margin: 0;
-  padding: 2em;
-  position: relative;
-}
