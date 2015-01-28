@@ -65,7 +65,7 @@
 							<add_artworks_cate module="pdp">
 								<title>Cliparts Categories</title>
 								<sort_order>10</sort_order>
-								<action>pdp/adminhtml_artworkcate/index</action>
+								<action>pdpadmin/adminhtml_artworkcate/index</action>
 							</add_artworks_cate>
 							<manageartworks module="pdp">
 								<title>Manage Cliparts</title>
@@ -87,7 +87,7 @@
                     <text module="pdp">
                         <title>Quote Library</title>
                         <sort_order>37</sort_order>
-                        <action>pdp/adminhtml_text/index</action>
+                        <action>pdpadmin/adminhtml_text/index</action>
                     </text>
                     <setting module="pdp">
                         <title>PDC Configuration</title>

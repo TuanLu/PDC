@@ -111,7 +111,7 @@
             <block type="pdp/adminhtml_artworkcolor" name="artworkcolor" template="pdp/artworkcolor.phtml"/>
         </reference>
 	</pdp_adminhtml_pdp_artworkcolor>
-	<pdp_adminhtml_artworkcate_image>
+	<pdpadmin_adminhtml_artworkcate_image>
 		<block type="core/text_list" name="root" output="toHtml">
 			<block type="pdp/adminhtml_artworkcate_edit_tab_artwork" name="artwork_grid"/>
 			<block type="adminhtml/widget_grid_serializer" name="artwork_serializer">
@@ -128,12 +128,12 @@
 				</reference>
 			</block>
 		</block>
-   </pdp_adminhtml_artworkcate_image>
-   <pdp_adminhtml_artworkcate_imagegrid>
+   </pdpadmin_adminhtml_artworkcate_image>
+   <pdpadmin_adminhtml_artworkcate_imagegrid>
 		<block type="core/text_list" name="root" output="toHtml">
 			<block type="pdp/adminhtml_artworkcate_edit_tab_artwork" name="artwork_grid"/>
 		</block>
-	</pdp_adminhtml_artworkcate_imagegrid>
+	</pdpadmin_adminhtml_artworkcate_imagegrid>
 
    <pdp_adminhtml_group_pdpgrid>
 		<block type="core/text_list" name="root" output="toHtml">
