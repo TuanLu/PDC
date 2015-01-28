@@ -1,0 +1,24 @@
+.content-header-floating {
+    z-index: 99999;
+}
+.item-options .item {
+    position: absolute;
+}
+.wrap_inlay {
+    overflow: hidden;
+}
+.list_size label {
+    float: left;
+    width: 35px;
+}
+.list_size span {
+    float: left;
+}
+.list_size li {
+    float: left;
+    width: 100%;
+}
+
+#nav li.over ul li.over ul {
+left: 150px!important;
+}

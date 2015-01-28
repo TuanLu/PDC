@@ -1,0 +1,54 @@
+<!--<div id="pdp_edit_text" class="pdp_extra_item">-->
+<div id="pdp_edit_text" class="pdp_typing_item">
+	<textarea id="pdp_edit_text_input" placeholder="<?php echo $this->__('Select text to edit');?>"></textarea>
+	<span id="font_menu" style="font-family: Arial;"><i class="pi  pi-check"></i><?php echo $this->__('Select Font')?></span>
+	<ul id="select_font">
+		<li rel="<?php echo $this->__("Arial") ?>"><?php echo $this->__('Arial') ?></li>
+		<?php foreach ( $this->getFonts() as $font) : ?>
+		<li rel="<?php echo $font->getName() ?>"><?php echo $font->getName() ?></li>
+		<?php endforeach; ?>
+	</ul>
+	<div class="style-and-align">
+		<div class="pdp_edit_font_style">
+			<ul>
+				<li><a class="text bold"><i class="pi pi-bold"></i></a></li>
+				<li><a class="text italic"><i class="pi pi-italic"></i></a></li>
+				<li><a class="text underline"><i class="pi pi-underline"></i></a></li>
+				<li><a class="text overline"><i class="pi pi-flag-o pi-rotate-90"></i></a></li>
+				<li><a class="text line-through"><i class="pi pi-strikethrough"></i></a></li>
+			</ul>
+		</div>
+		<div id="pdp_edit_text_style" class="">
+			<ul>
+				<li><a class="align align_left active"><i class="pi pi-align-left"></i></a></li>
+				<li><a class="align align_center"><i class="pi pi-align-center"></i></a></li>
+				<li><a class="align align_right"><i class="pi pi-align-right"></i></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="pdp_edit_text_font_size">
+		<div class="label"><?php echo $this->__('Font Size'); ?></div>
+		<div id="pdp_font_size_input"></div>
+		<span id="pdp_font_size_value">20px</span>
+	</div>
+	<div class="pdp_edit_text_line_height">
+		<div class="label"><?php echo $this->__('Line Height'); ?></div>   
+		<div id="pdp_edit_text_line_height_input"></div>
+		<span id="pdp_font_line_height_value">20px</span>
+	</div>
+	<?php echo $this->getLayout()->createBlock('core/template')->setTemplate('pdp/edit/text_color.phtml')->toHtml(); ?> 
+	<!--div class="pdp_edit_text_curved">
+		<div class="pdp_curved_text_control">
+			<div><label><?php echo $this->__('Reverse') ?> :</label><input type="checkbox" name="reverse" id="pdp2_curved_text_reverse" /></div>
+			<div><label><?php echo $this->__('Radius') ?> :</label>
+				<div id="pdp2_curved_text_radius"></div>
+				<span id="pdp2_curved_text_radius_value">100</span>
+			</div>
+			<div><label><?php echo $this->__('Spacing') ?> :</label>
+			<div id="pdp2_curved_text_spacing"></div>
+				<div id="pdp2_curved_text_spacing"></div>
+				<span id="pdp2_curved_text_spacing_value">15</span>
+			</div>
+		</div>
+	</div-->
+</div>

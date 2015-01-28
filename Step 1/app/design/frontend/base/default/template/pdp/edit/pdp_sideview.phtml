@@ -1,0 +1,18 @@
+<!--
+* Only three position Left - Top - Bottom are available by add class 'rotate_left' or 'rotate_top' or 'rotate_bottom'
+* Position right will conflict with the tool-box so it is not available and not recommend
+-->
+<!--div id="pdp_rotate_item" class="pdp_rotate_item rotate_left"-->
+<!--div id="pdp_rotate_item" class="pdp_rotate_item rotate_top"-->
+<!--div id="pdp_rotate_item" class="pdp_rotate_item rotate_bottom"-->
+<div id="pdp_rotate_item" class="pdp_rotate_item rotate_left">
+	<div class="pdp_rotate_wrap">
+		<input type="checkbox" id="sideview" name="sideview" />
+		<label for="sideview"><?php echo $this->__('Side Views');?> <br/><i class="pi pi-caret-up"></i></label>
+		<div class="side_items">
+			<div id="pdp_side_items">
+			 <?php echo $sidesHtml = Mage::helper('pdp')->getDesignSides($this->getCurrentProductId()); ?>
+			</div>
+		</div>
+	</div>
+</div>

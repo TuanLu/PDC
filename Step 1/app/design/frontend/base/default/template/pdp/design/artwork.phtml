@@ -1,0 +1,84 @@
+<?php $helper = Mage::helper('pdp');
+      $imagePath = $helper->getImagePath(); ?>
+<div class="tab_design_image">
+    <a  title="<?php echo $this->__('Cliparts') ?>" tab-content="content_designs" class="active design"><?php echo $this->__('Cliparts') ?></a>
+    <a  title="<?php echo $this->__('Upload'); ?>" tab-content="content_upload" class="upload"><?php echo $this->__('Upload'); ?></a>
+	<?php $facebookInfo = $this->getFacebookInfo();
+        if (is_array($facebookInfo)) {
+        	$facebookAppId = $facebookInfo['facebook_app_id'];
+        	$facebookKey = $facebookInfo['facebook_secret_key'];
+        }
+    ?>
+	<?php if(isset($facebookInfo['facebook_app_id']) && $facebookInfo['facebook_app_id'] != ''){ ?> 
+	   <a  title="<?php echo $this->__('Facebook'); ?>" tab-content="content_facebook" class="facebook_api"><?php echo $this->__('Facebook'); ?></a>
+	<?php } ?>
+</div>
+<div class="content_tab">
+	<div class="content_designs">
+		<?php $categoryOptions = Mage::getModel('pdp/artworkcate')->getCategoryOptions(); ?>
+        <label class="design_label"><?php echo $this->__('Photo category'); ?>:<span class="pdp_selected_category"></span><span class="pi pdp_parent">&#xf078;</span></label>
+		<ul id='image_category_list'>
+			<?php 
+			$options = $categoryOptions;
+            $check_first = 0;
+			if (!empty($options)) {
+				foreach ($options as $key => $value) {
+					if($check_first++==0){$act='class="active cat_loaded" cr_act="2"';}else{$act='';}
+					echo "<li ".$act."> <span id='". $key ."'>{$value}</span></li>";
+				}
+			}			
+			?>
+		</ul>
+		<ul id="icon_list">
+			<?php $defaultArtCate = Mage::getModel('pdp/artworkcate')->getDefaultArtCate() ?>
+			<?php $clipartCollection = $this->pagingCollection(1, $defaultArtCate, $this->_default_page_size);?>
+			<?php if ($clipartCollection) : ?>
+				<?php foreach ($clipartCollection as $image) : ?>
+				<li cat="<?php echo $image->getCategory(); ?>">
+	                <a rel="clover" class="selection_img">
+						<?php $colorImg = Mage::getModel('pdp/pdp')->getColorImageFrontend($image->getId()); ?>
+						<?php 
+						//Add root info if has color image
+						if ($colorImg != "") {
+							$colorImg = 'fff__' . $image->getFilename() . ',' . $colorImg;
+						}
+						?>
+	                    <img src="<?php echo $imagePath . 'artworks/'. $image->getFilename()  ?>" id="img<?php echo $image->getId(); ?>" color_type="<?php echo $image->getColorType() ?>" color="<?php echo $colorImg ?>" price="<?php echo $image->getPrice() ?>" image_name="<?php echo $image->getImageName() ?>" />
+	                </a>
+	            </li>
+				<?php endforeach;   ?>
+			<?php endif;?>
+		</ul>
+		<div class="add-more">
+			<input type="hidden" value='<?php echo $this->_default_page_size ?>' name='default_page_size' id="default_page_size" />
+			<button class="btn" id="load_more_image" type="button" <?php echo ($clipartCollection->count() >= $this->_default_page_size) ? "" : "style='display: none;'"?>><?php echo $this->__("LOAD MORE")?></button>
+		</div>
+    </div>
+		<div class="content_upload nodisplay">
+		<?php $uploadImageAction = Mage::getBaseUrl() . "pdp/index/uploadCustomImage" ?>
+		<form id="upload_images_form" action="<?php echo $uploadImageAction ?>" method="POST" enctype="multipart/form-data">
+			<input type="file" accept="image/*" name="uploads[]" id="fileToUpload" />
+			<p>
+	            <input type="checkbox" id="agreement" name="agreement" title="<?php echo $this->__("I have right to use this image and accept the terms and conditions of this service")?>" class="checkbox"><label for="agreement"><?php echo $this->__("I have right to use this image and accept the terms and conditions of this service")?>.</label>
+	            <input type="hidden" id="agreement_warming" value="<?php echo $this->__("Please accept the terms and conditions of this service!"); ?>" />
+	        </p>
+			<button id="upload_custom_img_btn" type="button" name="upload_custom_img_btn"><?php echo $this->__('Upload') ?></button>
+			<div id="response"></div>
+		</form>
+		<?php $customImageInSession = Mage::getSingleton("core/session")->getCustomUploadImages(); ?>
+		<div id="lists_img_upload">
+		<?php if (count($customImageInSession) > 0) : ?>
+			<?php //echo "<pre>"; print_r($customImageInSession); ?>
+			<?php foreach($customImageInSession as $_customImg) : ?>
+			<span><img alt="Invalid Image" src="<?php echo $_customImg ?>" color=""></span>
+			<?php endforeach; ?>
+		<?php endif; ?>
+		</div>
+	</div>
+	<div class="content_facebook nodisplay">
+		  <div id="fb-root"></div>
+		  <div id="user-info"></div>
+		  <div id="photos_album"></div>
+		  <button id="fb-auth" class="button"><span><span><?php echo $this->__('Please login Facebook') ?></span></span></button> 
+	</div>
+</div>

@@ -1,0 +1,34 @@
+<div id="pdp_sides">
+    <h3><?php echo $this->__('Choose Side'); ?></h3>
+	<?php echo $sidesHtml = Mage::helper('pdp')->getDesignSides($this->getCurrentProductId()); ?>
+</div>
+<?php $productColors = $this->getProductColorCollection(); ?>
+<?php if (count($productColors) > 0) : ?>
+<div class="color_wrap">
+	<div class='design-color-image'>
+		<h3 class="color-option"><?php echo $this->__('Choose Color') ?>
+			<span class="color_name">&nbsp;</span><span class="color_price">&nbsp;</span>
+		</h3>
+		<ul>
+			<?php foreach ($productColors as $productColor) :  ?>
+			<?php
+				$colorCode = $productColor['color_code'];
+				$colorName = $productColor['color_name'];
+				$productColorId = $productColor['id'];
+				$sideImages = $productColor['images'];
+			?>
+			<li
+				color="<?php echo $colorCode  ?>"
+				id="pdp_color_<?php echo $productColorId  ?>"
+				<?php foreach ($sideImages as $side) : ?>
+				<?php echo "side_" .$side['side_id'] . "='" . $side['filename'] . "'"; ?>
+				<?php endforeach; ?>
+				style="background: #<?php echo $colorCode  ?>"
+				name="<?php echo $colorName  ?>">
+			</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</div>
+<?php endif; ?>
+<div class="nodisplay" id="all_img_cache"></div>

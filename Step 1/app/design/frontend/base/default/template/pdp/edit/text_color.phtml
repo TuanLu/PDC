@@ -1,0 +1,19 @@
+<?php 
+	$colors = Mage::getModel('pdp/color')->getColors();
+?>
+<div id="pdp_color_text">
+	<div class="label"><?php echo $this->__('Color')?></div>
+    <div class="pdp_color_list">
+		<span id="font_color"><i class="pi  pi-check"></i><?php echo $this->__('Select Color:')?></span>
+        <input type="text" id="font_color_colorpicker_value" name="color" value="#123456" />
+        <div id="font_color_colorpicker"></div>
+        <!--ul id="font_color_list">
+        <li> 
+            <a style="background-color: #111;" rel="111" title="default color"><?php echo $this->__('Default')?></a>
+        </li>
+        <?php $i = 0; foreach($colors as $color)  :?>
+             <li><a style="background-color: #<?php echo $color->getColor_code(); ?>" rel="<?php echo $color->getColor_code(); ?>" title="<?php echo $color->getColor_name(); ?>"><?php echo $color->getColor_name(); ?></a></li>
+            <?php $i++; endforeach;  ?>
+        </ul-->
+    </div>
+</div>
