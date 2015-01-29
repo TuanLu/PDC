@@ -157,7 +157,7 @@ function rgb2hex(rgb) {
                     $('.pdp_color_list ul').hide();
                     $('.pdp_color_list .pdp_color_png').show();
                     if($('.pdp_color_list .pdp_color_png').length == 0){
-                        $('.pdp_color_list').append('<ul class="pdp_color_png"></ul>');
+                        $('#pdp_color_fill .pdp_color_list').append('<ul class="pdp_color_png"></ul>');
                         $('.pdp_color_png').on('click','a',function(){
                             $('.pdp_color_png .active').removeClass('active');
                             $(this).addClass('active');
@@ -2340,6 +2340,8 @@ function rgb2hex(rgb) {
             });
             $('#pdp_flip_x').on('click', canvasEvents.flipX);
             $('#pdp_flip_y').on('click', canvasEvents.flipY);
+            $('#pdp_poscenter_x').on('click', canvasEvents.centerX);
+            $('#pdp_poscenter_y').on('click', canvasEvents.centerY);
             //$('#rotateRight').on('click', canvasEvents.rotateRight);
             //$('#rotateLeft').on('click', canvasEvents.rotateLeft);
             $('#delete_item').on('click', canvasEvents.removeObject);
