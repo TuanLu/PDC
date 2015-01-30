@@ -7,8 +7,10 @@ errors/*
 includes/*
 shell/*
 pkinfo/*
+pkginfo/*
 app/code/core/*
 app/code/community/*
+app/design/install/*
 app/design/frontend/default/*
 app/design/frontend/rwd/*
 app/design/frontend/base/default/etc/*
